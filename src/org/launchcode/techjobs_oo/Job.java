@@ -18,9 +18,10 @@ public class Job {
     //  the 'id' field.
 
     public Job () {
-        int id = nextId;
+        id = nextId;
         nextId ++;
     }
+
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
