@@ -28,7 +28,7 @@ public class Employer {
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
         if (!(o instanceof Employer)) return false;
-        Employer employer = (Employer) o;
+        Employer employer = (Employer) o;   //casts o as an Employer object
         return getId() == employer.getId();
     }
 
