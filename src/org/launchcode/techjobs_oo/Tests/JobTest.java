@@ -53,4 +53,32 @@ public class JobTest {
 
         assertFalse(test_job.equals(test_job2));
     }
+
+    Job test_job3;
+
+    @Test
+    public void testJobToStringMethod() {
+        test_job = new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
+        test_job2 = new Job("", new Employer(""), new Location(""), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
+        test_job3 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        assertEquals("\nID= 3\n" +
+                "Name= Web Developer\n" +
+                "Employer= LaunchCode\n" +
+                "Location= St. Louis\n" +
+                "Position Type= Front-end developer\n" +
+                "Core Competency= JavaScript\n" , test_job.toString());
+
+        assertEquals("\nID= 4\n" +
+                "Name= Data not available\n" +
+                "Employer= Data not available\n" +
+                "Location= Data not available\n" +
+                "Position Type= Front-end developer\n" +
+                "Core Competency= JavaScript\n" , test_job2.toString());
+
+        //  no job data
+        assertEquals("OOPS! This job does not seem to exist.", test_job3.toString());
+
+
+        }
 }

@@ -1,8 +1,10 @@
 package org.launchcode.techjobs_oo;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class Job {
+
 
     private int id;
     private static int nextId = 1;
@@ -31,6 +33,46 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
+    // toStringMethod
+    @Override
+    public String toString() {
+        // if no data is available
+        if (this.name.equals("") && this.employer.getValue().equals("") && this.location.getValue().equals("") && this.positionType.getValue().equals("") && this.coreCompetency.getValue().equals("")) {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        // Return "Data not available" if a field is missing
+        // Best practive - make a Loop that interates over all of the fields' values - can't figure out how to do this out
+        if (this.name.equals("")){
+            this.name = "Data not available";
+        }
+        if (this.employer.getValue().equals("")){
+            this.employer.setValue("Data not available");
+        }
+        if (this.location.getValue().equals("")){
+            this.location.setValue("Data not available");
+        }
+        if (this.positionType.getValue().equals("")){
+            this.positionType.setValue("Data not available");
+        }
+        if (this.coreCompetency.getValue().equals("")){
+            this.coreCompetency.setValue("Data not available");
+        }
+
+        // question: object name vs. this.object name vs. getObjectName() function
+        return  "\nID= " + this.id + '\n' +
+                "Name= " + this.name + '\n' +
+                "Employer= " + this.employer + '\n' +
+                "Location= " + this.location + '\n' +
+                "Position Type= " + this.positionType + '\n' +
+                "Core Competency= " + this.coreCompetency + '\n';
+
+
+
+
+    }
+
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
