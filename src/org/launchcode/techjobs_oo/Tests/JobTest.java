@@ -23,9 +23,8 @@ public class JobTest {
 
     @Test
     public void testSettingJobId() {
-        assertEquals(1, test_job.getId());
-        assertEquals(2, test_job2.getId());
         assertTrue(test_job.getId() + 1 ==  test_job2.getId());
+        assertTrue(test_job2.getId() - 1 ==  test_job.getId());
         assertFalse(test_job.getId() == test_job2.getId());
     }
 
@@ -50,8 +49,6 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
 
-        assertEquals(3, test_job3.getId());
-
         assertTrue(test_job3 instanceof Job);
         assertTrue(test_job3.getEmployer() instanceof Employer);
         assertTrue(test_job3.getLocation() instanceof Location);
@@ -70,8 +67,6 @@ public class JobTest {
     @Test
     public void testJobsForEquality() {
         assertFalse(test_job4.equals(test_job5));
-        assertEquals(4,test_job4.getId(),0);
-        assertEquals(5,test_job5.getId(),0);
     }
 
 
